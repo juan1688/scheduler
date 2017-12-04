@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="ratchet-2.0.2/dist/css/ratchet-theme-android.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="ratchet-2.0.2/dist/css/ratchet.min.css" />
+    <title>Hello World</title>
+</head>
+
+<body>
+    
+<!-- Make sure all your bars are the first things in your <body> -->
+<header class="bar bar-nav">
+  <h1 class="title">Bienvenido a Propermar</h1>
+</header>
+
+<!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+<div class="content">
+  
+
+  <ul class="table-view">
+    <li class="table-view-cell"><a href="#composeNotificaciones" data-transition="fade">Notificaciones</a><span class="badge badge-negative">4</span></li>
+  </ul>
+  <form class="input-group">
+  <div class="input-row">
+    <label>Nombre</label>
+    <input type="text" placeholder="Nombre" value="Miguel Vela" disabled>
+  </div>
+  <div class="input-row">
+    <label>Email</label>
+    <input type="email" placeholder="ejemplo@gmail.com" value="propermar@propermar.net" disabled>
+  </div>
+  <div class="input-row">
+    <label>Username</label>
+    <input type="text" placeholder="Username" value="mvela" disabled>
+  </div>
+</form>
+  
+  <!-- FOOTER NAV -->
+  <nav class="bar bar-tab">
+    <a class="tab-item active" href="#">
+      <span class="icon icon-list"></span>
+      <span class="tab-label">Documentos</span>
+    </a>
+    <a class="tab-item" href="#composeMovimientos">
+      <span class="icon icon-person"></span>
+      <span class="tab-label">Movimientos</span>
+    </a>
+    <a class="tab-item" href="#">
+      <span class="icon icon-bars"></span>
+      <span class="tab-label">Viaticos</span>
+    </a>
+    <a class="tab-item" href="#composePerfil" data-transition="fade">
+      <span class="icon icon-gear"></span>
+      <span class="tab-label">Perfil</span>
+    </a>
+  </nav>
+</div>
+
+<!-- MODALS -->
+
+<div id="composeNotificaciones" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-left pull-left" href="#composeNotificaciones"></a>
+    <h1 class="title">Notificaciones</h1>
+  </header>
+
+  <div class="content">
+    <ul class="table-view">
+      <li class="table-view-cell media">
+        <a href="#composeNotificaciones">
+          <div class="media-body">
+            Sin Noticias
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id="composeDocumentos" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-left pull-left" href="#composeDocumentos"></a>
+    <h1 class="title">Documentos</h1>
+  </header>
+
+  <div class="content">
+    <form class="input-group">
+      <div class="input-row">
+        <label><i class="fa fa-user-circle" aria-hidden="true"></i></label>
+        <div class="toggle active">
+          <div class="toggle-handle"></div>
+        </div>
+      </div>
+      <div class="input-row">
+        <label><i class="fa fa-envelope" aria-hidden="true"></i></label>
+        <input type="email" placeholder="ejemplo@gmail.com" value="propermar@propermar.net">
+      </div>
+      <div class="input-row">
+        <label><i class="fa fa-user-o" aria-hidden="true"></i></label>
+        <input type="text" placeholder="Username" value="mvela" disabled>
+      </div>
+    </form>
+    <a class="btn btn-positive btn-block" href="#composeDocumentos">Guardar</a>
+  </div>
+</div>
+
+<div id="composeMovimientos" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-left pull-left" href="#composeMovimientos"></a>
+    <h1 class="title">Mis Movimientos</h1>
+  </header>
+
+  <div class="content">
+    <ul class="table-view">
+      <li class="table-view-cell media">
+        <div class="media-body">
+          Mar de Cortés
+          <ul>
+            <li>Perfil: Capitán</li>
+            <li>Embarco: 2017-10-16</li>
+            <li>Desembarco: 2017-10-20</li>
+          </ul>
+        </div>
+      </li>
+      <li class="table-view-cell media">
+        <div class="media-body">
+          Mar de Cortés
+          <ul>
+            <li>Perfil: Primer Oficial</li>
+            <li>Embarco: 2017-09-16</li>
+            <li>Desembarco: 2017-10-15</li>
+          </ul>
+        </div>
+      </li>
+      <li class="table-view-cell media">
+        <div class="media-body">
+          San Guillermo 
+          <ul>
+            <li>Perfil: Primer Oficial</li>
+            <li>Embarco: 2017-08-01</li>
+            <li>Desembarco: 2017-08-30</li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+    <a class="btn btn-primary btn-block" href="#composeMovimientos">Cerrar</a>
+  </div>
+</div>
+
+<div id="composePerfil" class="modal">
+  <header class="bar bar-nav">
+    <a class="icon icon-left pull-left" href="#composePerfil"></a>
+    <h1 class="title">Perfil</h1>
+  </header>
+
+  <div class="content">
+    <form class="input-group">
+      <div class="input-row">
+        <label><i class="fa fa-user-circle" aria-hidden="true"></i></label>
+        <input type="text" placeholder="Nombre" value="Miguel Vela">
+      </div>
+      <div class="input-row">
+        <label><i class="fa fa-envelope" aria-hidden="true"></i></label>
+        <input type="email" placeholder="ejemplo@gmail.com" value="propermar@propermar.net">
+      </div>
+      <div class="input-row">
+        <label><i class="fa fa-user-o" aria-hidden="true"></i></label>
+        <input type="text" placeholder="Username" value="mvela" disabled>
+      </div>
+    </form>
+    <a class="btn btn-positive btn-block" href="#composePerfil">Guardar</a>
+  </div>
+</div>
+
+<!-- /MODALS -->
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="ratchet-2.0.2/dist/js/ratchet.min.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
